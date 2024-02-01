@@ -1,0 +1,52 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100vw;
+  height: 5.0625rem;
+  /* background: #f0f8ff no-repeat fixed; */
+  background: #1f1f1f no-repeat fixed;
+  border-bottom: 1px solid var(--border-tabs);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.divForm {
+  padding-top: 15px;
+}
+
+.searchForm {
+  position: relative;
+  text-align: center;
+  /* margin-bottom: 50px; */
+  position: fixed;
+  right: 37%;
+  z-index: 2;
+  /* background-color: #ffffe0; */
+}
+
+.searchForm input {
+  width: 400px;
+  height: 45px;
+  /* position: fixed;
+    right: 45%;
+    z-index: 2; */
+  font-size: 17px;
+  padding-left: 40px;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.btnForm {
+  position: absolute;
+  left: 0px;
+  cursor: pointer;
+
+  padding-top: 10px;
+  font-size: 17px;
+  border: none;
+  border-radius: 7px;
+  background-color: transparent;
+}

@@ -9,8 +9,8 @@ export async function fetchImages(query, page) {
     params: {
       client_id: 'jtoSI8CvDKt9OsffDrV847n0Qv6agzgo1fJs0S7Hodo',
       query,
-      orientation: 'landscape',
-      content_filter: 'high',
+      // orientation: 'landscape',
+      // content_filter: 'high',
       page,
       per_page: 20,
     },

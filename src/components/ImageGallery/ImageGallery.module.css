@@ -1,0 +1,27 @@
+.gallery {
+  display: flex;
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  gap: 20px;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+
+  padding: 0;
+  margin: 0;
+  /* max-width: calc(100vw - 80px); */
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 30px; */
+  /* margin-top: 60px; */
+  padding-bottom: 20px;
+  padding-top: 70px;
+}
+
+.galleryItem {
+  /* max-width: 420;
+  height: 280; */
+  width: calc((100% - 60) / 4);
+}
+
+.galleryItem:hover {
+  cursor: zoom-in;
+}
