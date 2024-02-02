@@ -35,7 +35,6 @@ export function App() {
     setImages([]);
     setTotalPage(null);
     setIsModalOpen(false);
-    setLoading(true);
   }
 
   function handleLoadMore() {
