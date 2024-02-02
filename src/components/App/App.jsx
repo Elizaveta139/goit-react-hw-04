@@ -85,7 +85,7 @@ export function App() {
       {loading && <Loader onLoading={loading} />}
       {totalPage === 0 && <ErrorNoImages />}
       {error && <ErrorMessage />}
-      {images.length > 0 && !loading && totalPage / 20 > page && (
+      {images.length > 0 && !loading && totalPage / 21 > page && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isModalOpen && (
