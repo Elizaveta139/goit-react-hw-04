@@ -12,26 +12,11 @@ export function Loader({ onLoading }) {
       ariaLabel="three-dots-loading"
       wrapperStyle={{
         display: 'block',
-        marginTop: '20px',
+        marginTop: '10px',
         marginLeft: 'auto',
         marginRight: 'auto',
       }}
       wrapperClass={css.testClass}
     />
-    // <Bars
-    //   height="50"
-    //   width="60"
-    //   color="black"
-    //   ariaLabel="bars-loading"
-    //   wrapperClass={css.testClass}
-    //   wrapperStyle={{
-    //     display: 'block',
-    //     marginTop: '50px',
-    //     marginBottom: '50px',
-    //     marginLeft: 'auto',
-    //     marginRight: 'auto',
-    //   }}
-    //   visible={onLoading}
-    // />
   );
 }
