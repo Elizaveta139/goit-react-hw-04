@@ -3,7 +3,7 @@
   /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
   gap: 20px;
   flex-wrap: wrap;
-  /* justify-content: center; */
+  justify-content: center;
 
   padding: 0;
   margin: 0;
@@ -17,8 +17,6 @@
 }
 
 .galleryItem {
-  /* max-width: 420;
-  height: 280; */
   width: calc((100% - 60) / 4);
 }
 

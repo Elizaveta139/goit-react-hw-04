@@ -6,6 +6,9 @@ import { SearchBar } from '../SearchBar/SearchBar';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { Loader } from '../Loader/Loader';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { ErrorNoImages } from '../ErrorNoImages/ErrorNoImages';
+import { LoadMoreBtn } from '../LoadMoreBtn/LoadMoreBtn';
+import { ImageModal } from '../ImageModal/ImageModal';
 
 import './App.module.css';
 
@@ -15,11 +18,28 @@ export function App() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [totalPage, setTotalPage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalInfo, setModalInfo] = useState({
+    urls: '',
+    description: '',
+    likes: '',
+    user: '',
+  });
+
+  console.log('images', images);
 
   async function searchImages(newQuery) {
     setQuery(`${Date.now()}/${newQuery}`);
     setPage(1);
     setImages([]);
+    setTotalPage(null);
+    setIsModalOpen(false);
+    setLoading(true);
+  }
+
+  function handleLoadMore() {
+    setPage(page + 1);
   }
 
   useEffect(() => {
@@ -32,24 +52,46 @@ export function App() {
         setLoading(true);
         setError(false);
 
-        const fetchedData = await fetchImages(query.split('/')[1], page);
-        setImages(prevImages => [...prevImages, ...fetchedData]);
+        let fetchedData = await fetchImages(query.split('/')[1], page);
+        setTotalPage(fetchedData.total_pages);
+        console.log('hhh', fetchedData.total_pages);
+        setImages(prevImages => [...prevImages, ...fetchedData.results]);
       } catch (error) {
         setError(true);
-        // setError({ error: 'Something went wrong. Please try again.' });
       } finally {
         setLoading(false);
       }
     }
+
     componentUpdate();
   }, [query, page]);
+
+  function openModal(image) {
+    setIsModalOpen(true);
+
+    const { urls, description, likes, user } = image;
+    setModalInfo({ urls, description, likes, user });
+  }
+
+  console.log('setRegularImg', modalInfo);
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
 
   return (
     <>
       <SearchBar onSearch={searchImages} />
+      {images.length > 0 && <ImageGallery images={images} openModal={openModal} />}
+      {loading && totalPage / 20 > page && <Loader onLoading={loading} />}
+      {totalPage === 0 && <ErrorNoImages />}
       {error && <ErrorMessage />}
-      {images.length > 0 && <ImageGallery images={images} />}
-      <Loader onLoading={loading} />
+      {images.length > 0 && !loading && totalPage / 20 > page && (
+        <LoadMoreBtn onClick={handleLoadMore} />
+      )}
+      {isModalOpen && (
+        <ImageModal closeModal={closeModal} isModalOpen={isModalOpen} modalInfo={modalInfo} />
+      )}
       <Toaster position="top-right" />
     </>
   );
