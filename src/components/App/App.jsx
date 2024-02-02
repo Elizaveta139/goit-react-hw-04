@@ -82,7 +82,7 @@ export function App() {
     <>
       <SearchBar onSearch={searchImages} />
       {images.length > 0 && <ImageGallery images={images} openModal={openModal} />}
-      {loading && totalPage / 20 > page && <Loader onLoading={loading} />}
+      {loading && <Loader onLoading={loading} />}
       {totalPage === 0 && <ErrorNoImages />}
       {error && <ErrorMessage />}
       {images.length > 0 && !loading && totalPage / 20 > page && (

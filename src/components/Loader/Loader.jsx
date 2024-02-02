@@ -1,21 +1,37 @@
-import { Bars } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import css from './Loader.module.css';
 
 export function Loader({ onLoading }) {
   return (
-    <Bars
-      height="50"
-      width="60"
+    <ThreeDots
+      visible={onLoading}
+      height="80"
+      width="80"
       color="black"
-      ariaLabel="bars-loading"
-      wrapperClass={css.testClass}
+      radius="9"
+      ariaLabel="three-dots-loading"
       wrapperStyle={{
         display: 'block',
-        marginTop: '70px',
+        marginTop: '20px',
         marginLeft: 'auto',
         marginRight: 'auto',
       }}
-      visible={onLoading}
+      wrapperClass={css.testClass}
     />
+    // <Bars
+    //   height="50"
+    //   width="60"
+    //   color="black"
+    //   ariaLabel="bars-loading"
+    //   wrapperClass={css.testClass}
+    //   wrapperStyle={{
+    //     display: 'block',
+    //     marginTop: '50px',
+    //     marginBottom: '50px',
+    //     marginLeft: 'auto',
+    //     marginRight: 'auto',
+    //   }}
+    //   visible={onLoading}
+    // />
   );
 }
