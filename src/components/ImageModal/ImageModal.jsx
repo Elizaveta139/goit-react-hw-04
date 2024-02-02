@@ -2,7 +2,6 @@ import css from './ImageModal.module.css';
 import Modal from 'react-modal';
 import { AiFillLike } from 'react-icons/ai';
 import { RiOpenArmFill } from 'react-icons/ri';
-import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
